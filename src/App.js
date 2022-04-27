@@ -4,7 +4,6 @@ import CharacterListPage from "./CharacterListPage/CharacterListPage";
 
 
 
-
 function AppStarWars() {
   const [ currentPage, setCurrentPage] = useState("list")
 
@@ -23,5 +22,6 @@ return (
  </div>
 )
 }
+
 
 export default AppStarWars;
