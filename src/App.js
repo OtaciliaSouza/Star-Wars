@@ -4,8 +4,9 @@ import CharacterListPage from "./CharacterListPage/CharacterListPage";
 
 
 
+
 function AppStarWars() {
-  const [ currentPage, setCurrentPage] = useState("list")
+  const [ currentPage, setCurrentPage] = useState("detail")
 
 function selectePage () {
 if (currentPage === "details") {
@@ -22,6 +23,5 @@ return (
  </div>
 )
 }
-
 
 export default AppStarWars;
