@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+
+
 const CharacterDetailsPage = (props) => {
     const [details, setDetails] = useState([])
     const [planet, setPlanet] = useState([])
 
-    useEffect(() => {
-        getCharacterDateils()
-    }, [])
-
-    useEffect(() => {
-        getPlanetDatails()
-    }, [])
+    
+        useEffect(() => {
+            getCharacterDateils()
+            getPlanetDatails()
+        }, [details.homeworld])
 
 
     const getCharacterDateils = () => {
@@ -27,6 +27,8 @@ const CharacterDetailsPage = (props) => {
             .catch((error) => console.log("erro", error.message))
     }
 console.log(planet)
+
+
 
 
     return (
