@@ -30,12 +30,7 @@ const CharacterDetailsPage = (props) => {
     }
 console.log(planet)
 
-// const nomePlanet = planet.map((planeta)=>{
-//     return( 
-//         <p>{planeta}</p>
-//     )
-  
-// })
+
 
 
     return (
