@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { getCharacterDateils, getPlanetDatails } from "../../src/services/request";
 
 
 
@@ -9,23 +9,12 @@ const CharacterDetailsPage = (props) => {
 
     
         useEffect(() => {
-            getCharacterDateils()
-            getPlanetDatails()
+            getCharacterDateils(props.url, setDetails)
+            getPlanetDatails(details.homeworld, setPlanet)
         }, [details.homeworld])
 
 
-    const getCharacterDateils = () => {
-        
-        axios.get(props.url)
-            .then((response) => { setDetails(response.data) })
-            .catch((error) => console.log("erro", error.message))
-    }
 
-    const getPlanetDatails = () => {
-        axios.get(details.homeworld)
-            .then((response) => { setPlanet(response.data) })
-            .catch((error) => console.log("erro", error.message))
-    }
 console.log(planet)
 
 
@@ -34,8 +23,12 @@ console.log(planet)
     return (
         <div>
             <h1>Detalhes dos personagens</h1>
+            {details.name && planet.name ?
+            <div>
              <p>Nome: {details.name}</p>
             <p>Planeta de Origem: {planet.name}</p>
+            </div> : 
+            <p>carregando...</p> }
             <button onClick={props.goToListpage}>voltar para a pagina de personagens</button> 
         </div>
     )
