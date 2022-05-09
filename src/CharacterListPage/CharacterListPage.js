@@ -1,19 +1,18 @@
 import React, {useState, useEffect} from "react";
-import axios from "axios"
-import { BASE_URL } from "../constants/url";
+
 import { CharacterCard } from "./styledListaPage";
+import {getCharacterList} from "../../src/services/request"
+import { FirstTitle,FirstContainer } from "../CharacterListPage/styledListaPage";
+import capa from "../assets/personagens/capa.jpeg";
+
 
 const CharacterListPage = (props) =>{
  const [CharacterList, setCharacterList] = useState([])
 
-    function getCharacterList(){
-    axios.get(`${BASE_URL}/people/`)
-    .then((response) => setCharacterList (response.data.results))
-    .catch((error) => console.log("erro", error.message))
-}
+
 
 useEffect(() => {
-    getCharacterList()
+    getCharacterList(setCharacterList)
      }, []);
 
 const showCharacters = () => {
@@ -28,8 +27,13 @@ getCharacterList()
 
     return (
 <div>
-   <h5>teste componente ListaPage</h5>
-   {showCharacters()}
+<FirstContainer>
+<FirstTitle>Star Wars - ListaPage</FirstTitle>
+
+ <img src= {capa}/>
+
+{showCharacters()}
+   </FirstContainer>
 </div>
     );
 } 

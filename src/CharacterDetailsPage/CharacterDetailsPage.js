@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-
+import { getCharacterDateils, getPlanetDatails, getInformDatails} from "../../src/services/request";
+import {FirstTitle2,FirstContainer2, TitleButton2, FirstDetail} from "../CharacterDetailsPage/styledCaracterdetail"
 
 
 const CharacterDetailsPage = (props) => {
@@ -8,24 +8,16 @@ const CharacterDetailsPage = (props) => {
     const [planet, setPlanet] = useState([])
 
     
+
+    
         useEffect(() => {
-            getCharacterDateils()
-            getPlanetDatails()
+            getCharacterDateils(props.url, setDetails)
+            getPlanetDatails(details.homeworld, setPlanet)
         }, [details.homeworld])
 
 
-    const getCharacterDateils = () => {
-        
-        axios.get(props.url)
-            .then((response) => { setDetails(response.data) })
-            .catch((error) => console.log("erro", error.message))
-    }
 
-    const getPlanetDatails = () => {
-        axios.get(details.homeworld)
-            .then((response) => { setPlanet(response.data) })
-            .catch((error) => console.log("erro", error.message))
-    }
+
 console.log(planet)
 
 
@@ -33,12 +25,30 @@ console.log(planet)
 
     return (
         <div>
-            <h1>Detalhes dos personagens</h1>
+            <FirstContainer2>
+
+          <FirstTitle2> Detalhes dos personagens</FirstTitle2>
+          <FirstDetail>
+            {details.name && planet.name && planet.climate ?
+         
+            <div>
              <p>Nome: {details.name}</p>
             <p>Planeta de Origem: {planet.name}</p>
-            <button onClick={props.goToListpage}>voltar para a pagina de personagens</button> 
+            <p>Clima do Planeta: {planet.climate}</p>
+            <p>População do Planeta: {planet.population}</p>
+            <p>Terreno do Planeta: {planet.terrain}</p>
+
+            </div> : 
+            <p>carregando...</p> }
+            </FirstDetail>
+        <TitleButton2>
+          <button onClick={props.goToListpage}>voltar para a pagina de personagens</button> 
+          </TitleButton2>
+            </FirstContainer2>
         </div>
     )
 }
+
+
 
 export default CharacterDetailsPage
