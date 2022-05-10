@@ -28,7 +28,7 @@ getCharacterList()
     return (
 <div>
 <FirstContainer>
-<FirstTitle>Star Wars - </FirstTitle>
+<FirstTitle>Star Wars  </FirstTitle>
 
  <img src= {capa}/>
  <p>List Page</p> 
