@@ -18,13 +18,21 @@ align-items: center;
    
   }
 
-
+p {
+    margin-left:8%;
+    width: 40%;
+    height:100%;
+    font-size: x-large;
+    color: azure;
+   
+}
 
 `;
 export const FirstTitle = styled.h1`
 text-align: center;
 color: azure;
 `;
+
 
 
 export const CharacterCard = styled.div`
