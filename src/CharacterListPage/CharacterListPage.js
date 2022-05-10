@@ -28,11 +28,12 @@ getCharacterList()
     return (
 <div>
 <FirstContainer>
-<FirstTitle>Star Wars - ListaPage</FirstTitle>
+<FirstTitle>Star Wars - </FirstTitle>
 
  <img src= {capa}/>
-
+ <p>List Page</p> 
 {showCharacters()}
+<p></p> 
    </FirstContainer>
 </div>
     );

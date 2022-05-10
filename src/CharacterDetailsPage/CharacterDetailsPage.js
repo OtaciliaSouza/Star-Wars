@@ -29,7 +29,8 @@ console.log(planet)
 
           <FirstTitle2> Detalhes dos personagens</FirstTitle2>
           <FirstDetail>
-            {details.name && planet.name && planet.climate ?
+            {details.name && planet.name && planet.climate &&
+             planet.climate && planet.population && planet.terrain?
          
             <div>
              <p>Nome: {details.name}</p>
